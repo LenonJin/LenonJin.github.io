@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lenonjin.github.io</id>
     <title>Lenon Jin</title>
-    <updated>2021-07-20T11:01:28.694Z</updated>
+    <updated>2021-07-22T06:26:24.966Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://lenonjin.github.io"/>
     <link rel="self" href="https://lenonjin.github.io/atom.xml"/>
@@ -10,13 +10,13 @@
     <icon>https://lenonjin.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Lenon Jin</rights>
     <entry>
-        <title type="html"><![CDATA[                                   关于我]]></title>
+        <title type="html"><![CDATA[                                   关于]]></title>
         <id>https://lenonjin.github.io/post/about/</id>
         <link href="https://lenonjin.github.io/post/about/">
         </link>
         <updated>2021-06-24T11:44:49.000Z</updated>
         <content type="html"><![CDATA[<p><img src="https://lenonjin.github.io/post-images/1626775029203.jpeg" alt="" loading="lazy"><br>
-这里还是空空如也。。。。</p>
+你好，我是Lenon Jin。</p>
 ]]></content>
     </entry>
 </feed>
