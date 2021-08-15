@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lenonjin.github.io</id>
     <title>Lenon Jin</title>
-    <updated>2021-08-10T11:50:41.967Z</updated>
+    <updated>2021-08-15T17:36:04.204Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://lenonjin.github.io"/>
     <link rel="self" href="https://lenonjin.github.io/atom.xml"/>
@@ -15,12 +15,12 @@
         <link href="https://lenonjin.github.io/post/about/">
         </link>
         <updated>2021-08-09T12:50:50.000Z</updated>
-        <content type="html"><![CDATA[<p><img src="https://lenonjin.github.io/post-images/1628583878927.jpeg" alt="" loading="lazy"><br>
-你好，我是<strong>Lenon Jin</strong>，一位后端开发者。不咬文嚼字，在这里记录自己认为值得记录的事情。</p>
+        <content type="html"><![CDATA[<p><img src="https://lenonjin.github.io/post-images/1629019434647.jpg" alt="" loading="lazy"><br>
+你好，我是<strong>Lenon Jin</strong>，一位后端开发者。在这里记录并分享认为值得的事情。</p>
 <h3 id="爱好">爱好</h3>
 <p>奇奇怪怪的东西。</p>
 <h3 id="成就">成就</h3>
-<p>重度脂肪肝患者、脆皮鸭文学爱好者、亚洲酸柠檬推广大使、吉尼斯世界纪录“怎么减肥也减不下来”记录保持者。</p>
+<p>重度脂肪肝患者、吉尼斯世界纪录“怎么减肥也减不下来”记录保持者。</p>
 ]]></content>
     </entry>
 </feed>
