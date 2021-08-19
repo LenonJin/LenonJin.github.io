@@ -2,13 +2,94 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://lenonjin.github.io</id>
     <title>Lenon Jin</title>
-    <updated>2021-08-17T13:34:49.579Z</updated>
+    <updated>2021-08-19T10:20:21.158Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://lenonjin.github.io"/>
     <link rel="self" href="https://lenonjin.github.io/atom.xml"/>
     <logo>https://lenonjin.github.io/images/avatar.png</logo>
     <icon>https://lenonjin.github.io/favicon.ico</icon>
     <rights>All rights reserved 2021, Lenon Jin</rights>
+    <entry>
+        <title type="html"><![CDATA[Linux 安装配置 JDK]]></title>
+        <id>https://lenonjin.github.io/post/linux-an-zhuang-jdk/</id>
+        <link href="https://lenonjin.github.io/post/linux-an-zhuang-jdk/">
+        </link>
+        <updated>2021-08-18T15:59:00.000Z</updated>
+        <content type="html"><![CDATA[<h2 id="版本信息">版本信息</h2>
+<p>Linux：Ubuntu  20.04 64位<br>
+JDK：Java SE Development Kit 8u301 x64</p>
+<h2 id="jdk下载">JDK下载</h2>
+<p>官网：<a href="https://www.oracle.com/java/technologies/javase-downloads.html">https://www.oracle.com/java/technologies/javase-downloads.html</a><br>
+坚果：<a href="https://www.jianguoyun.com/p/Dee36-EQzbbhCRjM9YgE">https://www.jianguoyun.com/p/Dee36-EQzbbhCRjM9YgE</a></p>
+<h2 id="卸载自带jdk">卸载自带JDK</h2>
+<h5 id="检测系统是否已安装jdk">检测系统是否已安装JDK</h5>
+<p>命令：<code>java -version</code>：查看JDK安装版本信息，执行后显示如下则代表操作系统已经安装JDK。</p>
+<pre><code>1 root@iZbp12n8q:~# java -version
+2 openjdk version &quot;1.8.0_242&quot;
+3 OpenJDK Runtime Environment (build 1.8.0_242-b08)
+4 OpenJDK 64-Bit Server VM (build 25.242-b08, mixed mode)
+5 root@iZbp12n8q:~#
+</code></pre>
+<p>如显示 <em>Command 'java' not found...</em>，则代表操作系统未安装JDK，直接跳过卸载步骤查看安装步骤。</p>
+<h5 id="检测系统自带jdk软件包">检测系统自带JDK软件包</h5>
+<p>命令：<code>rpm -qa | grep java</code>：搜索并查看Java的软件包文件。</p>
+<pre><code>1 root@iZbp12n8q:~# rpm -aq | grep java
+2 java-1.8.0-openjdk-headless-1.8.0.242.b08-1.el7.x86_64
+3 python-javapackages-3.4.1-11.el7.noarch
+4 tzdata-java-2019c-1.el7.noarch
+5 javapackages-tools-3.4.1-11.el7.noarch
+6 java-1.8.0-openjdk-1.8.0.242.b08-1.el7.x86_64
+7 root@iZbp12n8q:~# 
+</code></pre>
+<h5 id="卸载系统自带jdk">卸载系统自带JDK</h5>
+<p>命令：<code>rpm -e --nodeps xxx</code>：卸载软件包，xxx为第二步搜索的文件名，.noarch文件可以不用删除。<br>
+删除后执行命令<code>java -version</code> 进行验证，执行后显示 <em>Command 'java' not found...</em> 则卸载成功。</p>
+<pre><code>1 root@iZbp12n8q:~# rpm -e --nodeps java-1.8.0-openjdk-headless-1.8.0.242.b08-1.el7.x86_64
+2 root@iZbp12n8q:~# rpm -e --nodeps java-1.8.0-openjdk-1.8.0.242.b08-1.el7.x86_64
+3
+4 root@iZbp12n8q:~# java -version
+5 Command 'java' not found, but can be installed with...
+</code></pre>
+<h2 id="jdk安装">JDK安装</h2>
+<h5 id="安装包上传">安装包上传</h5>
+<p>通过FTP工具(如XFTP，SecureFX)将下载的安装包 <em>jdk-8u301-linux-x64.tar.gz</em> 传至Linux指定目录，并查看是否上传成功。</p>
+<pre><code>1 root@iZbp12n8q:~# cd /root/softFile/
+2 root@iZbp12n8q:~/softFile# ll
+3 total 142120
+4 drwxr-xr-x 2 root root      4096 Aug 19 16:07 ./
+5 drwx------ 8 root root      4096 Aug 19 16:05 ../
+6 -rw-r--r-- 1 root root 145520298 Aug 19 11:17 jdk-8u301-linux-x64.tar.gz
+</code></pre>
+<h5 id="安装包解压">安装包解压</h5>
+<p>命令：<code>mkdir /usr/local/jdk</code>：在指定目录创建文件夹，用于存放解压后JDK文件。<br>
+命令：<code>tar -zxvf jdk-8u301-linux-x64.tar.gz -C /usr/local/jdk/</code>：将文件解压到指定目录中。</p>
+<pre><code>1 root@iZbp12n8q:~/softFile# mkdir /usr/local/jdk
+2 root@iZbp12n8q:~/softFile# tar -zxvf jdk-8u301-linux-x64.tar.gz -C /usr/local/jdk/
+3
+4 *** 解压过程省略 ***
+</code></pre>
+<h5 id="配置环境变量">配置环境变量</h5>
+<p>命令：<code>vim /etc/profile</code>：编辑Linux环境变量配置文件。<br>
+在文件底部插入以下配置并保存，JAVA_HOME= 为解压后JDK文件的存放路径：</p>
+<pre><code># JDK
+1 export JAVA_HOME=/usr/local/jdk/jdk1.8.0_301
+2 export PATH=$JAVA_HOME/bin:$PATH
+3 export CLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar
+</code></pre>
+<p>文件保存后，使用命令：<code>source /etc/profile</code> 重新载入环境配置文件。</p>
+<pre><code>1 root@iZbp12n8q:~# source /etc/profile
+</code></pre>
+<h5 id="验证jdk安装结果">验证JDK安装结果</h5>
+<p>命令：<code>java -version</code>，<code>javac</code>，依次执行命令，均能显示结果则环境变量配置成功。</p>
+<pre><code>1 root@iZbp12n8q:~# java -version
+2 java version &quot;1.8.0_301&quot;
+3 Java(TM) SE Runtime Environment (build 1.8.0_301-b09)
+4 Java HotSpot(TM) 64-Bit Server VM (build 25.301-b09, mixed mode)
+5
+6 *** javac 命令输出内容过多不做展示，命令可执行即可 ***
+</code></pre>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[                                   关于]]></title>
         <id>https://lenonjin.github.io/post/about/</id>
